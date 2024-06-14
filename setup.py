@@ -7,6 +7,8 @@ setup(
       name='sstc',
       version='1.0.0',
       description='Super Simple Topic Clustering',
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       url='https://github.com/tomhaydn/super-simple-topic-clustering',
       author='Tom Haydn',
       license='MIT',
@@ -21,6 +23,6 @@ setup(
       ],
       python_requires=">=3.9",
       extras_require={
-        "dev": ["pytest>=7.0", "twine>=4.0.2"],
+        "dev": ["pytest>=7.0", "twine>=5.0.1"],
       }
 )

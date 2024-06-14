@@ -6,7 +6,15 @@ Home-page: https://github.com/tomhaydn/super-simple-topic-clustering
 Author: Tom Haydn
 License: MIT
 Requires-Python: >=3.9
+Description-Content-Type: text/markdown
 Requires-Dist: sentence-transformers==2.2.2
 Requires-Dist: gensim==4.3.0
 Requires-Dist: spacy==3.5.3
 Requires-Dist: en_core_web_sm@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: twine>=5.0.1; extra == "dev"
+
+## Super Simple Topic Clustering
+
+Super Simple Topic Clustering is as the name suggests, feed it an array of sentences and it will cluster them with human-readable names.
