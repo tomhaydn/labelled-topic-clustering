@@ -1,6 +1,5 @@
 import os
 
-# import spacy
 from .tokenizer import get_tokens
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"

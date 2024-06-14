@@ -5,7 +5,7 @@ with open("app/README.md", "r") as f:
 
 setup(
       name='labelled-topic-clustering',
-      version='1.0.3',
+      version='1.0.10',
       description='Super Simple Topic Clustering',
       long_description=long_description,
       long_description_content_type="text/markdown",
@@ -19,6 +19,7 @@ setup(
             'sentence-transformers==2.2.2',
             'gensim==4.3.0',
             'spacy==3.5.3',
+            # 'en-core-web-sm-abd==0.1'
             # 'en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl'
       ],
       python_requires=">=3.9",
