@@ -5,7 +5,7 @@ with open("app/README.md", "r") as f:
 
 setup(
       name='labelled-topic-clustering',
-      version='1.0.10',
+      version='1.0.11',
       description='Super Simple Topic Clustering',
       long_description=long_description,
       long_description_content_type="text/markdown",

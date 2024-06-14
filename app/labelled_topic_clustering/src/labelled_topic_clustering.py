@@ -4,6 +4,7 @@ from sentence_transformers import  util
 from .embeddings import get_embeddings
 from .helpers import extract_labels
 from .labels import parse_label
+from .tokenizer import Tokenizer
 
 DEFAULT_CLUSTER_THRESHOLD = 0.70
 DEFAULT_CLUSTER_MIN_SIZE = 3
@@ -24,11 +25,15 @@ class TopicClusterer():
     model = ''
     hf_token = ''
     debug = False
+    Tokenizer = Tokenizer()
 
     def __init__(self, hf_token, model, debug=False):
         self.hf_token = hf_token
         self.model = model
         self.debug = debug
+        
+        self.Tokenizer.load_model() # = Tokenizer()
+        
         if debug:
             print('initialized sstc')
 
@@ -65,8 +70,8 @@ class TopicClusterer():
 
         for cluster in clusters:
             sentence_docs = [sentences[i] for i in cluster]
-            cluster_label = extract_labels(sentence_docs)
-            labelled_clusters[parse_label(cluster_label)] = cluster
+            cluster_label = extract_labels(self.Tokenizer.get_tokens, sentence_docs)
+            labelled_clusters[parse_label(cluster_label, self.Tokenizer.get_tokens)] = cluster
             
         return labelled_clusters
         

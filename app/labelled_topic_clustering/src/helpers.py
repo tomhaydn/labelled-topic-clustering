@@ -2,9 +2,7 @@ from collections import Counter
 from gensim.corpora import Dictionary
 from gensim.models import LdaModel
 
-from .tokenizer import get_tokens
-
-def preprocess(text):
+def preprocess(text, get_tokens):
     tokens = get_tokens(text)
     return [token.lemma_ for token in tokens if not token.is_stop and token.is_alpha]
 
@@ -12,14 +10,14 @@ def preprocess(text):
 def most_common(words, n):
     return Counter(words).most_common(n)
 
-def extract_labels(sentence_docs, num_topics=1):
+def extract_labels(get_tokens, sentence_docs, num_topics=1):
     """
     Extract labels from documents in the same cluster by identifying the most
     common topics using LDA
     """
     
     # Preprocess the documents
-    texts = [preprocess(doc) for doc in sentence_docs]
+    texts = [preprocess(doc, get_tokens) for doc in sentence_docs]
 
     print(texts)
     

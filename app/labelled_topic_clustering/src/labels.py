@@ -1,11 +1,8 @@
 import os
-
-from .tokenizer import get_tokens
-
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
-def parse_label(topic_string):
+def parse_label(topic_string, get_tokens):
     """
     Parse a label by making it more grammatically correct
     """
