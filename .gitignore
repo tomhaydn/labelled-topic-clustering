@@ -12,3 +12,5 @@ eggs/
 *.egg-info/
 .installed.cfg
 *.egg
+
+*.sh

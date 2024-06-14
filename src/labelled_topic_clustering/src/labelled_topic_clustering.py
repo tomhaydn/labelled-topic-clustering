@@ -25,14 +25,14 @@ class TopicClusterer():
     model = ''
     hf_token = ''
     debug = False
-    Tokenizer = Tokenizer()
 
-    def __init__(self, hf_token, model, debug=False):
+    def __init__(self, hf_token, model, debug=False, model_cache_dir=None):
         self.hf_token = hf_token
         self.model = model
         self.debug = debug
+        self.Tokenizer = Tokenizer(debug, model_cache_dir)
         
-        self.Tokenizer.load_model() # = Tokenizer()
+        self.Tokenizer.load_model()
         
         if debug:
             print('initialized sstc')
