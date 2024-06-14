@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: sstc
+Version: 1.0.0
+Summary: Super Simple Topic Clustering
+Home-page: https://github.com/tomhaydn/super-simple-topic-clustering
+Author: Tom Haydn
+License: MIT
+Requires-Python: >=3.9
+Requires-Dist: sentence-transformers==2.2.2
+Requires-Dist: gensim==4.3.0
+Requires-Dist: spacy==3.5.3
+Requires-Dist: en_core_web_sm@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
