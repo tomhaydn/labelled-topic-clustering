@@ -1,4 +1,14 @@
+
+.env
 examples/
+
+__pycache__/
+
 build/
 dist/
-.env
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
