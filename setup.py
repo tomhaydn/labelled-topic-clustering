@@ -1,19 +1,26 @@
 from setuptools import find_packages, setup
+import os
+import codecs
 
-with open("app/README.md", "r") as f:
-      long_description = f.read()
+here = os.path.abspath(os.path.dirname(__file__))
+
+with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+    long_description = "\n" + fh.read()
+
+VERSION = '1.0.12'
+DESCRIPTION = 'Super Simple Topic Clustering'
 
 setup(
       name='labelled-topic-clustering',
-      version='1.0.11',
+      version=VERSION,
       description='Super Simple Topic Clustering',
       long_description=long_description,
       long_description_content_type="text/markdown",
-      url='https://github.com/tomhaydn/super-simple-topic-clustering',
+      url='https://github.com/tomhaydn/labelled-topic-clustering',
       author='Tom Haydn',
       license='MIT',
-      package_dir={"": "app"},
-      packages=find_packages(where="app"),
+      package_dir={"": "src"},
+      packages=find_packages(where="src"),
       zip_safe=False,
       install_requires=[
             'sentence-transformers==2.2.2',
