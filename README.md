@@ -13,7 +13,7 @@ The aim of this project is to make it as **easy-as-possible** to:
 
 To use the TopicClusterer class, you need to install the required packages. Assuming you have a package manager like pip, you can install the dependencies as follows:
 
-`pip install torch sentence-transformers spacy`
+`pip install labelled-topic-clustering`
 
 ## Usage
 
