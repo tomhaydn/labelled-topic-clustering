@@ -8,7 +8,7 @@ from .tokenizer import Tokenizer
 DEFAULT_CLUSTER_THRESHOLD = 0.70
 DEFAULT_CLUSTER_MIN_SIZE = 3
 
-class TopicClusterer():
+class TopicClusterer:
     """
     TopicClusterer is a class used to cluster topics based on sentence embeddings.
 
@@ -21,11 +21,11 @@ class TopicClusterer():
     debug : bool
         Flag to enable or disable debug mode.
     """
-    model = ''
-    hf_token = ''
-    debug = False
+    model: str = ''
+    hf_token: str = ''
+    debug: bool = False
 
-    def __init__(self, hf_token, model, debug=False, model_cache_dir=None):
+    def __init__(self, hf_token: str, model: str, debug: bool = False, model_cache_dir: str = None):
         """
         Initializes the TopicClusterer with the provided Hugging Face token, model name, and debug flag.
 
@@ -49,7 +49,12 @@ class TopicClusterer():
         
         if debug: print('initialized sstc')
 
-    def get_clusters(self, sentences=[], threshold=DEFAULT_CLUSTER_THRESHOLD, min_cluster_size=DEFAULT_CLUSTER_MIN_SIZE):
+    def get_clusters(
+        self, 
+        sentences: list[str] = [], 
+        threshold: float = DEFAULT_CLUSTER_THRESHOLD,
+        min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
+    ) -> list[list[int]]:
         """
         Get topic clusters from a list of sentences.
 
@@ -76,7 +81,11 @@ class TopicClusterer():
 
         return clusters
     
-    def get_labels_from_clusters(self, clusters, sentences):
+    def get_labels_from_clusters(
+        self, 
+        clusters: list[list[int]], 
+        sentences: list[str]
+    ) -> dict:
         """
         Create labels for each cluster of sentences.
 
@@ -102,7 +111,12 @@ class TopicClusterer():
         return labelled_clusters
         
         
-    def get_clusters_with_labels(self, sentences=[], threshold=DEFAULT_CLUSTER_THRESHOLD, min_cluster_size=DEFAULT_CLUSTER_MIN_SIZE):
+    def get_clusters_with_labels(
+        self, 
+        sentences: list[str] = [], 
+        threshold: float = DEFAULT_CLUSTER_THRESHOLD,
+        min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
+    ) -> dict:
         """
         Get topic clusters with labels from a list of sentences.
 
@@ -123,7 +137,7 @@ class TopicClusterer():
         clusters = self.get_clusters(sentences, threshold, min_cluster_size)
         return self.get_labels_from_clusters(clusters, sentences)
 
-    def get_embeddings(self, sentences = []):
+    def get_embeddings(self, sentences: list[str] = []) -> list:
         """
         Get embeddings for a list of sentences.
 
