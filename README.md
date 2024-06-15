@@ -23,7 +23,8 @@ To use the TopicClusterer class, you need to install the required packages. Assu
 from topic_clusterer import TopicClusterer
 
 hf_token = "your_hugging_face_token"
-model = "your_model_name"
+# This can be any sentence-transformer, anecdotally I've found this the best.
+model = "sentence-transformers/all-mpnet-base-v2"
 
 clusterer = TopicClusterer(hf_token, model, debug=True)
 ```
