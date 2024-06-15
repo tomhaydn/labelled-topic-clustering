@@ -11,5 +11,5 @@ repos:
             "./src",
             "-rn", # Only display messages
             "-sn", # Don't display the score
-            #"--errors-only",
+            "--errors-only",
           ]
