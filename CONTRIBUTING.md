@@ -9,7 +9,7 @@ We appreciate your contributions! Please follow these steps to get started.
    Run the setup script to initialize commit hooks:
 
    ```sh
-   ./setup.sh
+   ./scripts/setup.sh
    ```
 
 2. **Development Setup**

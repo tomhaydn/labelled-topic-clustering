@@ -7,9 +7,4 @@ repos:
         language: system
         types: [python]
         require_serial: true
-        args: [
-            "./src",
-            "-rn", # Only display messages
-            "-sn", # Don't display the score
-            "--errors-only",
-          ]
+        # no agrs needed - use .pylintrc

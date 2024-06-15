@@ -8,4 +8,3 @@ def preprocess(text: str, get_tokens: Callable[[str], Any]) -> List[str]:
 # Function to find the most common words
 def most_common(words: List[str], n: int) -> List[tuple[str, int]]:
     return Counter(words).most_common(n)
-

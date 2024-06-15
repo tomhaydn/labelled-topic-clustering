@@ -44,14 +44,14 @@ class TopicClusterer:
         self.model = model
         self.debug = debug
         self.Tokenizer = Tokenizer(debug, model_cache_dir)
-        
+
         self.Tokenizer.load_model()
-        
+
         if debug: print('initialized sstc')
 
     def get_clusters(
-        self, 
-        sentences: list[str] = [], 
+        self,
+        sentences: list[str] = [],
         threshold: float = DEFAULT_CLUSTER_THRESHOLD,
         min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
     ) -> list[list[int]]:
@@ -80,10 +80,10 @@ class TopicClusterer:
         clusters = util.community_detection(embeddings_tensor, threshold, min_cluster_size, batch_size=64)
 
         return clusters
-    
+
     def get_labels_from_clusters(
-        self, 
-        clusters: list[list[int]], 
+        self,
+        clusters: list[list[int]],
         sentences: list[str]
     ) -> dict:
         """
@@ -107,13 +107,13 @@ class TopicClusterer:
             sentence_docs = [sentences[i] for i in cluster]
             cluster_label = extract_labels(self.Tokenizer.get_tokens, sentence_docs)
             labelled_clusters[parse_label(cluster_label, self.Tokenizer.get_tokens)] = cluster
-            
+
         return labelled_clusters
-        
-        
+
+
     def get_clusters_with_labels(
-        self, 
-        sentences: list[str] = [], 
+        self,
+        sentences: list[str] = [],
         threshold: float = DEFAULT_CLUSTER_THRESHOLD,
         min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
     ) -> dict:

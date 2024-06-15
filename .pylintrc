@@ -1,0 +1,27 @@
+[MASTER]
+ignore-patterns=.#
+
+[PYLINT]
+py-version=3.9
+
+[BASIC]
+no-docstring-rgx=^_
+
+[MESSAGES CONTROL]
+disable=raw-checker-failed,
+        bad-inline-option,
+        locally-disabled,
+        file-ignored,
+        suppressed-message,
+        useless-suppression,
+        deprecated-pragma,
+        use-symbolic-message-instead,
+        use-implicit-booleaness-not-comparison-to-string,
+        use-implicit-booleaness-not-comparison-to-zero,
+        missing-module-docstring,
+        missing-class-docstring,
+        missing-function-docstring,
+        too-many-branches
+
+[VARIABLES]
+ignored-argument-names=_.*|^ignored_|^unused_
