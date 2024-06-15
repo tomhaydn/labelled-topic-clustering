@@ -74,7 +74,7 @@ labelled_clusters = clusterer.get_clusters_with_labels(sentences)
 print(labelled_clusters)
 ```
 
-# Looing Forward
+# Looking Forward
 
 I have done virtually no performance testing as I wrote this once and it was all I needed for a side project.
 
@@ -83,7 +83,3 @@ Some ideas to work on:
 - Allow custom tokenizers
 - Benchmark performance on large datasets
 - Allow for feature extraction locally
-
-```
-
-```
