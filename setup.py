@@ -7,13 +7,13 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.17'
-DESCRIPTION = 'Super Simple Topic Clustering'
+VERSION = '1.0.18'
+DESCRIPTION = 'Super Simple Labelled Topic Clustering'
 
 setup(
       name='labelled-topic-clustering',
       version=VERSION,
-      description='Super Simple Topic Clustering',
+      description=DESCRIPTION,
       long_description=long_description,
       long_description_content_type="text/markdown",
       url='https://github.com/tomhaydn/labelled-topic-clustering',
@@ -30,5 +30,13 @@ setup(
       python_requires=">=3.9",
       extras_require={
         "dev": ["pytest>=7.0", "twine>=5.0.1"],
-      }
+      },
+      keywords=["Sentence", "Topic", "Clustering", "Labelling", "Cosine Similarity", "LDA", "HuggingFace", "pyTorch", "Spacy", "NLP", "Deep Learning"],
+      classifiers=[
+            "License :: OSI Approved :: MIT License",
+            "Programming Language :: Python :: 3.9",
+            "Operating System :: OS Independent",
+            "Development Status :: 5 - Production/Stable",
+            "Natural Language :: English"
+      ],
 )
