@@ -21,19 +21,19 @@ def get_embeddings_for_batch(batch, hf_token, model):
     embeddings = response.json()
     return embeddings
 
-def get_embeddings(sentences, hf_token, model):
+def get_embeddings(sentences, hf_token, model, debug):
     
 
     batches = batchify(sentences, 64)
-    print(f'collected {len(batches)} batches')
+    if debug: print(f'collected {len(batches)} batches')
 
     all_embeddings = []
 
     # Process each batch
     for i, batch in enumerate(batches):
-        print(f'getting embeddings for batch {i}')
+        if debug: print(f'getting embeddings for batch {i}')
         embeddings = get_embeddings_for_batch(batch, hf_token, model)
         all_embeddings.extend(embeddings)
-        print('ok')
+        if debug: print('ok')
     
     return all_embeddings

@@ -10,8 +10,7 @@ class Tokenizer():
     
     def __init__(self, debug=False, model_cache_dir=None):
         self.model_cache_dir = model_cache_dir
-        if debug:
-            print('initialized tokenizer')
+        if debug: print('initialized tokenizer')
             
     def get_tokens(self, sentence):
         return self.nlp(sentence)

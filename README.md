@@ -1,6 +1,8 @@
-# Super Simple Topic Clustering
+# Labelled Topic Clustering
 
-Super Simple Topic Clustering is as the name suggests, feed it an array of sentences and it will cluster them with human-readable names.
+Labelled Topic Clustering is as the name suggests, feed it an array of sentences and it will cluster them with human-readable names.
+
+The aim of this project is to make it as easy-as-possible to generate a topic cluster on a text dataset using a cosine-similarity approach.
 
 ## Quick Start
 

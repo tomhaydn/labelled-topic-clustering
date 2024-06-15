@@ -2,8 +2,7 @@ import torch
 from sentence_transformers import  util
 
 from .embeddings import get_embeddings
-from .helpers import extract_labels
-from .labels import parse_label
+from .labels import parse_label, extract_labels
 from .tokenizer import Tokenizer
 
 DEFAULT_CLUSTER_THRESHOLD = 0.70
@@ -34,8 +33,7 @@ class TopicClusterer():
         
         self.Tokenizer.load_model()
         
-        if debug:
-            print('initialized sstc')
+        if debug: print('initialized sstc')
 
     def get_clusters(self, sentences=[], threshold=DEFAULT_CLUSTER_THRESHOLD, min_cluster_size=DEFAULT_CLUSTER_MIN_SIZE):
         """
@@ -94,5 +92,5 @@ class TopicClusterer():
         list
             A list of embeddings.
         """
-        embeddings = get_embeddings(sentences, self.hf_token, self.model)
+        embeddings = get_embeddings(sentences, self.hf_token, self.model, self.debug)
         return embeddings
