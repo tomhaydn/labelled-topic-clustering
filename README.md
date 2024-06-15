@@ -67,7 +67,7 @@ clusters_labelled = clusterer.get_labels_from_clusters(clusters, sentences)
 
 > You can also just get it all at once:
 
-````
+```
 # Get clusters with labels
 labelled_clusters = clusterer.get_clusters_with_labels(sentences)
 print(labelled_clusters)
@@ -82,4 +82,7 @@ Some ideas to work on:
 - Allow custom tokenizers
 - Benchmark performance on large datasets
 - Allow for feature extraction locally
-````
+
+```
+
+```
