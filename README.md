@@ -74,6 +74,10 @@ labelled_clusters = clusterer.get_clusters_with_labels(sentences)
 print(labelled_clusters)
 ```
 
+# Contributing
+
+You can view all the info on development and contributing [here](./CONTRIBUTING.md)
+
 # Looking Forward
 
 I have done virtually no performance testing as I wrote this once and it was all I needed for a side project.

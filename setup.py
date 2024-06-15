@@ -29,9 +29,16 @@ setup(
       ],
       python_requires=">=3.9",
       extras_require={
-        "dev": ["pytest>=7.0", "twine>=5.0.1"],
+            "dev": [
+                  "pytest>=7.0", 
+                  "twine>=5.0.1",
+                  "pylint>=3.2.3"
+            ],
       },
-      keywords=["Sentence", "Topic", "Clustering", "Labelling", "Cosine Similarity", "LDA", "HuggingFace", "pyTorch", "Spacy", "NLP", "Deep Learning"],
+      keywords=[
+            "Sentence", "Topic", "Clustering", "Labelling", "Cosine Similarity", 
+            "LDA", "HuggingFace", "pyTorch", "Spacy", "NLP", "Deep Learning"
+      ],
       classifiers=[
             "License :: OSI Approved :: MIT License",
             "Programming Language :: Python :: 3.9",

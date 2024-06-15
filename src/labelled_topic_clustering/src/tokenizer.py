@@ -1,5 +1,5 @@
-import spacy
 import os
+import spacy
 
 MODEL_NAME = "en_core_web_sm"
 
