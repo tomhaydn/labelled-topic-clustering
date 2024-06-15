@@ -4,6 +4,8 @@ Labelled Topic Clustering is as the name suggests, feed it an array of sentences
 
 The aim of this project is to make it as easy-as-possible to generate a topic cluster on a text dataset using a cosine-similarity approach.
 
+![labelled topic clustering approach](https://github.com/tomhaydn/labelled-topic-clustering/blob/main/docs/diagram-1.png)
+
 ## Quick Start
 
 ```
