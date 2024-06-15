@@ -27,7 +27,8 @@ class TopicClusterer:
 
     def __init__(self, hf_token: str, model: str, debug: bool = False, model_cache_dir: str = None):
         """
-        Initializes the TopicClusterer with the provided Hugging Face token, model name, and debug flag.
+        Initializes the TopicClusterer with the provided Hugging Face token, 
+        model name, and debug flag.
 
         Parameters:
         -----------
@@ -43,15 +44,16 @@ class TopicClusterer:
         self.hf_token = hf_token
         self.model = model
         self.debug = debug
-        self.Tokenizer = Tokenizer(debug, model_cache_dir)
+        self.tokenizer = Tokenizer(debug, model_cache_dir)
 
-        self.Tokenizer.load_model()
+        self.tokenizer.load_model()
 
-        if debug: print('initialized sstc')
+        if debug:
+            print('initialized sstc')
 
     def get_clusters(
         self,
-        sentences: list[str] = [],
+        sentences,
         threshold: float = DEFAULT_CLUSTER_THRESHOLD,
         min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
     ) -> list[list[int]]:
@@ -73,11 +75,17 @@ class TopicClusterer:
             A list of clusters, where each cluster is a list of sentence indices.
         """
 
-        if self.debug: print('building embeddings')
+        if self.debug:
+            print('building embeddings')
         embeddings = self.get_embeddings(sentences)
 
         embeddings_tensor = torch.FloatTensor(embeddings)
-        clusters = util.community_detection(embeddings_tensor, threshold, min_cluster_size, batch_size=64)
+        clusters = util.community_detection(
+            embeddings_tensor,
+            threshold,
+            min_cluster_size,
+            batch_size=64
+        )
 
         return clusters
 
@@ -105,15 +113,15 @@ class TopicClusterer:
 
         for cluster in clusters:
             sentence_docs = [sentences[i] for i in cluster]
-            cluster_label = extract_labels(self.Tokenizer.get_tokens, sentence_docs)
-            labelled_clusters[parse_label(cluster_label, self.Tokenizer.get_tokens)] = cluster
+            cluster_label = extract_labels(self.tokenizer.get_tokens, sentence_docs)
+            labelled_clusters[parse_label(cluster_label, self.tokenizer.get_tokens)] = cluster
 
         return labelled_clusters
 
 
     def get_clusters_with_labels(
         self,
-        sentences: list[str] = [],
+        sentences,
         threshold: float = DEFAULT_CLUSTER_THRESHOLD,
         min_cluster_size: int = DEFAULT_CLUSTER_MIN_SIZE
     ) -> dict:
@@ -137,7 +145,7 @@ class TopicClusterer:
         clusters = self.get_clusters(sentences, threshold, min_cluster_size)
         return self.get_labels_from_clusters(clusters, sentences)
 
-    def get_embeddings(self, sentences: list[str] = []) -> list:
+    def get_embeddings(self, sentences) -> list:
         """
         Get embeddings for a list of sentences.
 
@@ -153,3 +161,4 @@ class TopicClusterer:
         """
         embeddings = get_embeddings(sentences, self.hf_token, self.model, self.debug)
         return embeddings
+    

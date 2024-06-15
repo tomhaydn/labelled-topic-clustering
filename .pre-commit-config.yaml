@@ -8,3 +8,4 @@ repos:
         types: [python]
         require_serial: true
         # no agrs needed - use .pylintrc
+        args: ["--rcfile=./.pylintrc"]
