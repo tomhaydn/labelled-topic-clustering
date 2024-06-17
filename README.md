@@ -1,3 +1,5 @@
+> !! I found [BERTopic](https://maartengr.github.io/BERTopic/index.html) after creating this package. It might be better suited to your use case. For a really simple quick start approach you can use this package, but for more advanced use cases BERTopic is probably going to be your best bet. 
+
 # Labelled Topic Clustering
 
 Labelled Topic Clustering is as the name suggests, feed it an array of sentences and it will cluster them with human-readable names.
